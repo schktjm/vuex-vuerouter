@@ -9,7 +9,12 @@ export default new Vuex.Store({
   // strict: true,
   state: {
     isLoggedIn: false,
-    content: ""
+    greet: null
+  },
+  getters: {
+    getGreet: state => content => {
+      return state.greet != null ? state.greet[content] : undefined;
+    }
   },
   mutations: {
     login(state) {
@@ -18,8 +23,8 @@ export default new Vuex.Store({
     logout(state) {
       state.isLoggedIn = false;
     },
-    setContent(state, payload) {
-      state.content = payload.content;
+    setGreet(state, { content, greet }) {
+      state.greet = { ...state.greet, [content]: greet };
     }
   },
   actions: {
@@ -29,10 +34,10 @@ export default new Vuex.Store({
     logout({ commit }) {
       return sleep(1).then(() => commit("logout"));
     },
-    getContent({ state, commit }, { content, onError }) {
+    setGreet({ state, commit }, { content, onError }) {
       return sleep(1).then(() => {
         if (state.isLoggedIn) {
-          commit("setContent", content + " Hello World!");
+          commit("setGreet", { content: content, greet: content + " Hello World!" });
         } else {
           onError();
         }

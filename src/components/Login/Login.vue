@@ -8,13 +8,14 @@
 <script>
 /* eslint-disable */
 export default {
-    name: "login",
-    methods: {
-        async login() {
-            console.log("login");
-            await this.$store.dispatch("login");
-        }
+  name: "login",
+  methods: {
+    async login() {
+      console.log("login");
+      await this.$store.dispatch("login");
+      this.$router.push("/");
     }
+  }
 };
 </script>
 

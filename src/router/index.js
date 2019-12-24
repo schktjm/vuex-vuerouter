@@ -4,6 +4,7 @@ import Home from "../components/Home/Home.vue";
 import About from "../components/About/About.vue";
 import Login from "../components/Login/Login";
 import NotFound from "../components/NotFound/404.vue";
+import store from "../store"
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  if (!store.state.isLoggedIn && to.path != '/login') {
+    next('/login');
+  }
   next();
 });
 

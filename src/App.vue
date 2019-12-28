@@ -13,6 +13,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isLoggedin: false
+    };
+  },
   created() {
     console.log("App created");
 

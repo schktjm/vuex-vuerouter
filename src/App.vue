@@ -21,11 +21,11 @@ export default {
   created() {
     console.log("App created");
 
-    this.$store.dispatch("checkToken").then(res => {
-      if (!res) {
-        this.$router.push("/login").catch(err => {});
-      }
-    });
+    // this.$store.dispatch("checkToken").then(res => {
+    //   if (!res) {
+    //     this.$router.push("/login").catch(err => {});
+    //   }
+    // });
   },
   mounted() {
     console.log("App mounted");

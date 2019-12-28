@@ -30,12 +30,8 @@ export default {
     async setGreet() {
       this.$store.dispatch("setGreet", {
         content: this.content,
-        onError: this.onError
+        onError: () => console.error("child invalid")
       });
-    },
-    onError() {
-      console.error(this.content, "invalid");
-      this.$router.push("/login");
     }
   }
 };

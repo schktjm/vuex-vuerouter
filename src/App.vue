@@ -12,20 +12,20 @@
 </template>
 
 <script>
-/* eslint-disable */
 export default {
   created() {
     console.log("App created");
-    console.log(this.$store.state);
+
+    this.$store.dispatch("checkToken").then(res => {
+      if (!res) {
+        this.$router.push("/login").catch(err => {});
+      }
+    });
   },
   mounted() {
     console.log("App mounted");
   },
-  computed: {
-    isLoggedin() {
-      return this.$store.state.isLoggedIn;
-    }
-  },
+  computed: {},
   methods: {
     handleClick() {
       this.$store.commit("logout");

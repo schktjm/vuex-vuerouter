@@ -34,6 +34,11 @@ export default new Vuex.Store({
     logout({ commit }) {
       return sleep(1).then(() => commit("logout"));
     },
+    checkToken({ state }) {
+      return sleep(1).then(() => {
+        return state.isLoggedIn;
+      })
+    },
     setGreet({ state, commit }, { content, onError }) {
       return sleep(1).then(() => {
         if (state.isLoggedIn) {

@@ -1,29 +1,9 @@
 # vuex-vuerouter
 
-## Project setup
-```
-npm install
-```
+APIリクエストに必要なsession tokenが切れていた際、ログインページに飛ばす処理をいくつかの方法で書いてみました。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+方法
+1. App.vue のcreatedで`isValidToken` を呼ぶ。 
+2. vue-router のナビゲーションガードガードでナビゲーション毎に `isValidToken` を呼ぶ。
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [ブログ](https://tjmschk.hatenablog.com/entry/2019/12/28/201830)
